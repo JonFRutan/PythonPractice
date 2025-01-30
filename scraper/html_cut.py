@@ -1,3 +1,5 @@
+# Cuts a div out of a provided html file.
+
 import sys, re
 import time
 
@@ -19,12 +21,27 @@ if div_pattern == None:
 div_pattern = f"<div id=\"{div_pattern}\""
 div_pattern = rf"{div_pattern}"
 
-#For now if the file isn't found it will just fail.
-with open(file_name, "r") as file:
-    html_content = file.read().split("\n")
+#See if the file exists
+no_file = True
 
-doc_head = html_content[0] 
-html_pattern = r"<!DOCTYPE html>"
+while no_file:
+    try:
+        with open(file_name, "r") as file:
+            html_content = file.read().split("\n")
+            break
+    # If the file isn't found, check the outputs folder
+    except IOError as e:
+        try:
+            with open(f"outputs/{file_name}", "r") as file:
+                html_content = file.read().split("\n")
+                break
+        # If the file still isn't found, loop
+        except IOError as e:
+            print("File not found, or another error.")
+            file_name = input("Try entering the file path again: ")
+
+#doc_head = html_content[0] 
+#html_pattern = r"<!DOCTYPE html>"
 
 #if re.match(html_pattern, doc_head):
 #    print("HTML identified")
@@ -61,8 +78,8 @@ for line in html_content[1:]:
     line_count+=1
 
 html_content = html_content[:line_count+1]
-print(f"Cropped div from lines {first_line} to {first_line+line_count}\nOutput final.txt\n")
+print(f"Cropped div from lines {first_line} to {first_line+line_count}\nOutput final.txt")
 
-with open("final.txt", "w") as output_file:
+with open("outputs/final.txt", "w") as output_file:
     output_file.writelines(line + "\n" for line in html_content)
 

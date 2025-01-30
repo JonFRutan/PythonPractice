@@ -26,7 +26,7 @@ if response.status_code == 200:
     print()
     save = input("Save to file? (y/n)")
     if save == 'y':
-        with open("output.html", "w") as file:
+        with open("outputs/output.html", "w") as file:
             file.write(html_content)
             exit()
     else:
