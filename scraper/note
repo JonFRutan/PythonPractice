@@ -5,3 +5,9 @@ each contains a corresponding data-tagid.
 E.g. PvP = data-tagid="1775"
 Within each "app_tag_control popular" there is a single href, which has the category in it.
 
+Extra stuff:
+-I've made a 'blobber', which can convert image files into blob format; we could store images
+in our database this way.
+-app_id can be [PK] for game entities
+-data-tagid can be a [PK] for the genre/tag entities
+
