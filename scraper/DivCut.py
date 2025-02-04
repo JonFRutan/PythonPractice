@@ -1,5 +1,4 @@
 # Cuts a div out of a provided html file.
-
 import sys, re
 import time
 
@@ -60,7 +59,6 @@ first_line = line_count
 #print(line_count)
 
 # We know where the div begins, now we need to find where it ends.
-
 div_start = r"<div"
 div_end   = r"div>"
 div_layer = 0
@@ -78,8 +76,9 @@ for line in html_content[1:]:
     line_count+=1
 
 html_content = html_content[:line_count+1]
-print(f"Cropped div from lines {first_line} to {first_line+line_count}\nOutput final.txt")
+print(f"Cropped div from lines {first_line} to {first_line+line_count}\nCreated final.txt")
 
 with open("outputs/final.txt", "w") as output_file:
     output_file.writelines(line + "\n" for line in html_content)
 
+# Done
