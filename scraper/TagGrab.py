@@ -4,18 +4,22 @@
 import re, sys, HtmlGrab
 
 if len(sys.argv) > 1:
-    input_div = sys.argv[1]
+    url = sys.argv[1]
+    HtmlGrab.grab_from_url(url)
+    html_input = 
 else:
     input_type = input("Using URL or App ID? : (u/a) ")
     if input_type == 'u':
         url = input("Paste a URL")
+        HtmlGrab.
     elif input_type == 'a':
         app_id = input("Enter the steam app id: ")
+        HtmlGrab.grab_from_id(app_id)
 
 
 tag_start_pattern = r"InitAppTagModal"
 
-with open(input_div, "r") as file:
+with open(html_input, "r") as file:
     div_contents = file.read().split("\n")
 
 line_count = 0
