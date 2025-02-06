@@ -1,3 +1,4 @@
-Tkalk has been moved to another repository: JonFRutan/Tkalk
+Scraper has been moved into its own repo: JonFRutan/Tkalk
 
-Tkalk will no longer be updated here.
+No further modifications to it will be posted here.
+
