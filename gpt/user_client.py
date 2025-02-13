@@ -31,7 +31,7 @@ class UserClient:
             if new_system == '#':
                 break
             elif new_system == '?':
-                print("The system settings affects the models behavior.\nThe default is 'Be Brief.'\nYou can modify this to your liking, e.g. 'Your responses will strictly be in alphabetic ciphers'")
+                print("The system settings affects the models behavior.\nThe default is 'Be a bit brief. When formatting text avoid markdown and use plain text.'\nYou can modify this to your liking, e.g. 'Your responses will strictly be in alphabetic ciphers'")
             else:
                 self.system_settings = new_system
                 break

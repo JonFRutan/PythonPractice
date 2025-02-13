@@ -5,11 +5,8 @@ OS_TYPE = platform.system()
 MODEL_LIST = ["gpt-4o-mini", "gpt-4o", "gpt-3-5-turbo", "gpt-4"]
 
 def clear_screen():
-    if OS_TYPE in ["Linux", "Darwin"]:
-        os.system("clear")
-    elif OS_TYPE == "Windows":
-        os.system("cls")
-        
+    os.system("cls" if OS_TYPE=="Windows" else "clear")
+
 def save_environment_variable(api_key):
     if OS_TYPE in ["Linux", "Darwin"]: #POSIX systems; Linux, and Darwin for MAC
        shell = os.path.expanduser("~/.bashrc")

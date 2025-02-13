@@ -25,9 +25,10 @@ def generate_response(user, prompt):
         stream=True
     )
     return response
+
 globals.clear_screen()
 print("Connecting to API...")
-user = user_client.UserClient("gpt-4o-mini", "Be brief.", None)
+user = user_client.UserClient("gpt-4o-mini", "Be a bit brief. When formatting text avoid markdown and use plain text.", None)
 ready = True
 key = os.getenv("OPENAI_API_KEY")
 if key:
@@ -35,6 +36,7 @@ if key:
 if not key:
     ready = False
 globals.clear_screen()
+
 while not ready:
     api_key = input("Please provide your OpenAI API key (? for help, x for exit.): ")
     if api_key == "?":
